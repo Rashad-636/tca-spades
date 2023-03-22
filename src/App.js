@@ -1,23 +1,29 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { Homepage, Setup, GameInPlay } from "./pages";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { NavBar } from './NavBar';
+import { useState } from 'react';
 
 
-export const App = () => {
+
+const App = () => {
+
   return (
-    <BrowserRouter>
+    <div className="App">
+        <h1>Spades Companion App</h1>
+    <HashRouter>
       <NavBar />
-
-      <div className="App">
         <Routes>
-          <Route path="/" element={ <Homepage />} />
+          <Route
+            path="/" 
+            element={ <Homepage />} />
           <Route path="/Setup" element={ <Setup />} />
           <Route path="/GameInPlay" element={ <GameInPlay />} />
         </Routes>
+        </HashRouter>
       </div>
-    </BrowserRouter>
+   
   );
 };
 

@@ -7,9 +7,6 @@ export const NavBar = () => {
                 <Link to="/">HomePage</Link>
             </li>
             <li>
-                <Link to="/Setup">Set Up</Link>
-            </li>
-            <li>
                 <Link to="/GameInPlay">Game In Play</Link>
             </li>
         </ul>
