@@ -10,7 +10,7 @@ export const Homepage = () =>{
     return ( 
         <>
        
-        <h1>Home page</h1>
+        <h2>Home page</h2>
         <Button
             variant="outline-primary"
             onClick={() => nav("/setup")}
