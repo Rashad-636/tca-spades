@@ -1,5 +1,4 @@
 import { Button } from "react-bootstrap";
-import Container from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 export const GameInPlay = () => {
@@ -14,7 +13,13 @@ export const GameInPlay = () => {
             variant="outline-primary"
             onClick={() => nav(-2)}    
         >
-            Finshed
+            Team 1 Won
+        </Button>{' '}
+        <Button
+            variant="outline-danger"
+            onClick={() => nav(-2)}
+        >
+            Team 2 Won
         </Button>
     </>
     )
