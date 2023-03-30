@@ -2,7 +2,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { Homepage, Setup, GameInPlay } from "./pages";
 import { HashRouter, Routes, Route } from "react-router-dom";
-import { useState } from 'react';
 
 
 
@@ -17,11 +16,13 @@ const App = () => {
         <Routes>
           <Route
             path="/" 
-            element={ <Homepage />} />
+            element={<Homepage/>}/>
           <Route path="/Setup"
-            element={ <Setup />} />
+            element={<Setup/>} 
+          />
           <Route path="/GameInPlay" 
-            element={ <GameInPlay />} />
+            element={<GameInPlay/>} 
+          />
         </Routes>
       </HashRouter>
     </div>

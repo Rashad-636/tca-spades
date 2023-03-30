@@ -87,12 +87,14 @@ const hardcodedGameResults = [
     
     const gameList = () => {
         
-        const sortedGameResults = calculateLeaderboard(hardcodedGameResults).map((game) => <tr>
-            <td>{game.name}</td>
-            <td>{game.wins} </td>
-            <td>{game.losses}</td>
-            <td>{game.avg}</td>
-            </tr>);
+        const sortedGameResults = calculateLeaderboard(hardcodedGameResults).map((game) =>
+            <tr>
+                <td>{game.name}</td>
+                <td>{game.wins} </td>
+                <td>{game.losses}</td>
+                <td>{game.avg}</td>
+            </tr>
+        );
             
         return (
             sortedGameResults
