@@ -10,15 +10,13 @@ export const GameInPlay = () => {
         nav(-2);
     };
 
-///////////////////////////////////////////////
-
-//testing
+    // useState variables and functions
     const [val, setVal] = useState(0);
     const [valTwo, setValTwo] = useState(0);
     const [teamOneScores, setTeamOneScores] = useState([]);
     const [teamTwoScores, setTeamTwoScores] = useState([]);
 
-    //testing
+    // function adds scores together for both teams after each turn once button is pressed
     const addTurnScore = () => {
 
         setTeamOneScores([
@@ -31,13 +29,10 @@ export const GameInPlay = () => {
             , Number(valTwo)
         ]);
 
+        // resets input value to zero for next turn/hand
         setVal(0);
         setValTwo(0);
-
-        // console.log("Team One " + val, "Team Two " + valTwo);
     };
-
-////////////////////////////////////////////////
     
     return (
     <>
