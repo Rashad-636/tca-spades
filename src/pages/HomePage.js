@@ -9,6 +9,8 @@ export const Homepage = ({gameresults}) => {
 
     const nav = useNavigate();
 
+    const totalGames = gameresults.length
+
     return ( 
         <>
        
@@ -16,9 +18,18 @@ export const Homepage = ({gameresults}) => {
         <Button
             variant="outline-primary"
             onClick={() => nav("/setup")}
+            className='mb-3'
             > 
             Play! 
             </Button>
+            <Card>
+                <Card.Header>
+                    # of Games Played
+                </Card.Header>
+                <Card.Body>
+                    {totalGames}
+                </Card.Body>
+            </Card>
             <Card
                 className="mt-3 overflow-hidden"
             >
