@@ -2,11 +2,19 @@ import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useState} from "react";
 
-export const GameInPlay = () => {
+export const GameInPlay = ({setupInfo, setGameResults, gameresults}) => {
+
+    console.log(setupInfo);
     
     const nav = useNavigate();
 
     const gameOver = (won) => {
+        setGameResults([
+            ...gameresults 
+            , {
+            ...setupInfo
+            , winningTeam: won
+        }]);
         nav(-2);
     };
 
@@ -58,12 +66,12 @@ export const GameInPlay = () => {
             </button>
             <br/>
             <br/>
-        <p>Team One Total: {
+        <p>Team 1 Total: {
             teamOneScores.reduce(
                 (acc, x) => acc + x
                 , 0)
             }</p>
-        <p>Team Two Total: {
+        <p>Team 2 Total: {
             teamTwoScores.reduce(
                 (acc, x) => acc + x
                 , 0)
@@ -72,13 +80,13 @@ export const GameInPlay = () => {
 
         <Button
             variant="outline-primary"
-            onClick={() => gameOver(true)}    
+            onClick={() => gameOver("team 1")}    
         >
             Team 1 Won
         </Button>{' '}
         <Button
             variant="outline-danger"
-            onClick={() => gameOver(true)}
+            onClick={() => gameOver("team 2")}
         >
             Team 2 Won
         </Button>

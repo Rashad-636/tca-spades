@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-export const Setup = () => {
+export const Setup = ({setSetupInfo}) => {
 
     const nav = useNavigate();
 
@@ -12,38 +12,23 @@ export const Setup = () => {
     const [playerFour, setPlayerFour] = useState("");
 
 
-    const [teamOne, setTeamOne] = useState({playerOne: "", playerTwo: ""});
-    const [teamTwo, setTeamTwo] = useState({playerOne: "", playerTwo: ""});
-
-    const setTeams = () => {
-
-      setTeamOne(
-        {
-          playerOne,
-          playerTwo
-        }
-      );
-
-      setTeamTwo(
-        {
-          playerOne: playerThree,
-          playerTwo: playerFour
-        }
-      );
-    };
 
     const play = () => {
-      console.log("here", teamOne, teamTwo);
+      setSetupInfo({
+        start: new Date().toISOString()
+        , playerOne: playerOne
+        , playerTwo: playerTwo
+        , playerThree: playerThree
+        , playerFour: playerFour
+      });
       nav("/GameInPlay");
-      setTeams();
     };
 
     console.log(playerOne);
     console.log(playerTwo);
     console.log(playerThree);
     console.log(playerFour);
-    console.log(teamOne);
-    console.log(teamTwo);
+
 
     return (
     <>
@@ -93,11 +78,6 @@ export const Setup = () => {
         onClick={play}
       >
         Play!
-      </button>
-      <button
-        onClick={() => setTeams()}
-      > 
-      Set Team
       </button>
     </>
     );
