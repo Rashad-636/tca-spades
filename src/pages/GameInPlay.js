@@ -59,11 +59,12 @@ export const GameInPlay = ({setupInfo, setGameResults, gameresults}) => {
                 /> 
             <br/>
             <br/>
-            <button 
+            <Button 
+            variant="outline-success"
             onClick= {() => addTurnScore()}
             >
              Add Turn Score 
-            </button>
+            </Button>
             <br/>
             <br/>
         <p>Team 1 Total: {

@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { Button } from "react-bootstrap";
 
 export const Setup = ({setSetupInfo}) => {
 
@@ -74,11 +75,12 @@ export const Setup = ({setSetupInfo}) => {
       />
       <br/>
       <br/>
-      <button
+      <Button
+      variant="outline-primary"
         onClick={play}
       >
         Play!
-      </button>
+      </Button>
     </>
     );
 };

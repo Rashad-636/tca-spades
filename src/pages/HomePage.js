@@ -20,7 +20,7 @@ export const Homepage = ({gameresults}) => {
             onClick={() => nav("/setup")}
             className='mb-3'
             > 
-            Play! 
+            Start 
             </Button>
             <Card>
                 <Card.Header>
