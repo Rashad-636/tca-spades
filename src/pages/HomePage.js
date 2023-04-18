@@ -3,6 +3,63 @@ import Card from 'react-bootstrap/Card';
 import { useNavigate } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
 
+const getUniquePlayers = (results) => {
+    return [
+        ...new Set(
+            results.flatMap(x => [
+                x.playerOne
+                , x.playerTwo
+                , x.playerThree
+                , x.playerFour
+            ])
+        )
+    ];
+};
+
+const getLeaderboardData = (results) => {
+
+    const winners = results.flatMap(x => {
+        return x.winningTeam == "Team 1" ? [x.playerOne, x.playerTwo]: [x.playerThree, x.playerFour]
+    });
+    console.log(winners);
+
+    const losers = results.flatMap(x => {
+        return x.winningTeam == "Team 1" ? [x.playerThree, x.playerFour]: [x.playerOne, x.playerTwo]
+    });
+    console.log(losers);
+
+    const winnersWithWinCount = winners.reduce(
+        (acc, x) => acc.set(
+            x
+            , (acc.get(x) ?? 0) + 1 
+        )
+        , new Map()
+    );
+    console.log(winnersWithWinCount);
+
+    const losersWithLossCount = losers.reduce(
+        (acc, x) => acc.set(
+            x
+            , (acc.get(x) ?? 0) + 1 
+        )
+        , new Map()
+    );
+    console.log(losersWithLossCount);
+
+    return getUniquePlayers(results).map(x => {
+        const wins = winnersWithWinCount.get(x) ?? 0;
+        const losses = losersWithLossCount.get(x) ?? 0;
+        const avg = wins / (wins + losses);
+
+        return {
+            name: x
+            , wins: wins
+            , losses: losses 
+            , avg: avg
+        };
+    });
+};
+
 export const Homepage = ({gameresults}) => {
 
     console.log(gameresults);
@@ -16,7 +73,7 @@ export const Homepage = ({gameresults}) => {
        
         <h2 className='m-3'>Home page</h2>
         <Button
-            variant="outline-primary"
+            variant="outline-success"
             onClick={() => nav("/setup")}
             className='mb-3'
             > 
@@ -47,7 +104,15 @@ export const Homepage = ({gameresults}) => {
                                 </tr>
                             </thead>
                             <tbody>
-                                
+                            {
+                                getLeaderboardData(gameresults).map(x => 
+                                <tr>
+                                 <td>{x.name}</td>
+                                 <td>{x.wins}</td> 
+                                 <td>{x.losses}</td>
+                                 <td>{x.avg}</td>  
+                                </tr>)
+                            }
                             </tbody>
                         </Table>                        
             

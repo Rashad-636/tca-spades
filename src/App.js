@@ -10,10 +10,10 @@ import Button from 'react-bootstrap/Button';
 const hardcodedGameResults= [
   {
           start: "2023-03-23T17:38:23.230Z"
-          , playerOne: "Tom"
+          , playerOne: "Rashad"
           , playerTwo: "Tom"
-          , playerThree: "Tom"
-          , playerFour: "Tom"
+          , playerThree: "Jo"
+          , playerFour: "Samantha"
           , winningTeam: "Team 1"
   }
 ];
@@ -38,6 +38,7 @@ const App = () => {
   // useEffect hook
 
   useEffect(
+    
     () => {
 
         const loadEmailKey = async () => {
