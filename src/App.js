@@ -4,8 +4,6 @@ import { Homepage, Setup, GameInPlay } from "./pages";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import localforage from 'localforage';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 import { saveGameToCloud, loadGamesFromCloud } from './tca-cloud-api';
 
 
@@ -112,26 +110,15 @@ const App = () => {
 
       <h1>Spades Companion App</h1>
       <hr />
-      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-				<Form.Control 
-					type="text" 
-					placeholder="Enter Email"
-					value={emailKeyInput} 
-					onChange={(e) => setEmailKeyInput(e.target.value)}
-				/>
-        <br />
-				<Button
-					onClick={saveEmailKey}
-				>
-					Save
-				</Button>
-		</Form.Group>
       <HashRouter>
         <Routes>
           <Route
             path="/" 
             element={<Homepage
-              gameresults={gameresults}/>}
+              gameresults={gameresults}
+              setEmailKeyInput={setEmailKeyInput}
+              emailKeyInput={emailKeyInput}
+              saveEmailKey={saveEmailKey}/>}
           />
           <Route path="/Setup"
             element={<Setup 

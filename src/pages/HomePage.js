@@ -2,6 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { useNavigate } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
+import { Form } from 'react-bootstrap';
 
 const getUniquePlayers = (results) => {
     return [
@@ -72,7 +73,20 @@ export const Homepage = ({gameresults, setEmailKeyInput, emailKeyInput, saveEmai
         <>
        
         <h2 className='m-3'>Home page</h2>
-
+        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+			<Form.Control 
+				type="text" 
+				placeholder="Enter Email"
+				value={emailKeyInput} 
+				onChange={(e) => setEmailKeyInput(e.target.value)}
+			/>
+        <br />
+			<Button
+				onClick={saveEmailKey}
+			>
+				Save
+			</Button>
+		</Form.Group>
         <Button
             variant="success"
             onClick={() => nav("/setup")}
