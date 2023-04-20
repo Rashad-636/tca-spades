@@ -7,23 +7,13 @@ import localforage from 'localforage';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-const hardcodedGameResults= [
-  {
-          start: "2023-03-23T17:38:23.230Z"
-          , playerOne: "Rashad"
-          , playerTwo: "Tom"
-          , playerThree: "Jo"
-          , playerFour: "Samantha"
-          , winningTeam: "Team 1"
-  }
-];
 
 
 const App = () => {
 
   // State Hooks
 
-  const [gameresults, setGameResults] = useState(hardcodedGameResults);
+  const [gameresults, setGameResults] = useState([]);
 
   const [setupInfo, setSetupInfo] = useState({
     start: "",

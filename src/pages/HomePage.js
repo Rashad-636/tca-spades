@@ -55,7 +55,7 @@ const getLeaderboardData = (results) => {
             name: x
             , wins: wins
             , losses: losses 
-            , avg: avg
+            , avg: avg.toFixed(3)
         };
     });
 };
@@ -73,11 +73,11 @@ export const Homepage = ({gameresults}) => {
        
         <h2 className='m-3'>Home page</h2>
         <Button
-            variant="outline-success"
+            variant="success"
             onClick={() => nav("/setup")}
             className='mb-3'
             > 
-            Start 
+            Start Game
             </Button>
             <Card>
                 <Card.Header>
