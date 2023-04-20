@@ -2,19 +2,19 @@ import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useState} from "react";
 
-export const GameInPlay = ({setupInfo, setGameResults, gameresults}) => {
+export const GameInPlay = ({setupInfo, setGameResults, gameresults, addGameresult}) => {
 
     console.log(setupInfo);
     
     const nav = useNavigate();
 
     const gameOver = (won) => {
-        setGameResults([
-            ...gameresults 
-            , {
+        
+        addGameresult({
             ...setupInfo
             , winningTeam: won
-        }]);
+        });
+
         nav(-2);
     };
 

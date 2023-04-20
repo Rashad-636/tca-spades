@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import localforage from 'localforage';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { saveGameToCloud, loadGamesFromCloud } from './tca-cloud-api';
 
 
 
@@ -33,23 +34,42 @@ const App = () => {
     
     () => {
 
-        const loadEmailKey = async () => {
+        const loadEmailKeyAndGameResults = async () => {
 
             try {
 
-                const ek = await localforage.getItem("emailKey") ?? ""
+                const ek = String(await localforage.getItem("emailKey")) ?? "";
 
+                if (ek.length > 0) {
+
+                  const resultsFromCloud = await loadGamesFromCloud(
+                    ek
+                    , "tca-spades"
+                  );
+
+                  if (!ignore) {
+                    setGameResults(resultsFromCloud);
+                  };
+
+                };
+
+                if (!ignore) {
                 setEmailKeyInput(ek);
                 setEmailKeySaved(ek);
+                };
             }
             catch (err) {
               console.error(err)
             }
         };
 
-        loadEmailKey();
+        let ignore = false;
+        loadEmailKeyAndGameResults();
+        return () => {
+          ignore = true;
+        };
     }
-    , []
+    , [emailKeySaved]
   );
 
   // helper functions
@@ -62,17 +82,36 @@ const App = () => {
 			);
 
       setEmailKeySaved(emailKeyInput);
-      
+
 		}
 		catch (err) {
 			console.error(err);
 		}
 	};
 
+  const addGameresult = (gameresult) => {
+
+    // Save the game result to the cloud
+    saveGameToCloud(
+      emailKeySaved
+      , "tca-spades"
+      , gameresult.start
+      , gameresult
+    );
+
+    // Optimistically update lifted app
+    setGameResults([
+      ...gameresults
+      , gameresult
+    ]);
+  };
+
+
   return (
     <div className="App">
 
       <h1>Spades Companion App</h1>
+      <hr />
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
 				<Form.Control 
 					type="text" 
@@ -86,14 +125,14 @@ const App = () => {
 				>
 					Save
 				</Button>
-			</Form.Group>
-      <hr />
+		</Form.Group>
       <HashRouter>
         <Routes>
           <Route
             path="/" 
             element={<Homepage
-              gameresults={gameresults}/>}/>
+              gameresults={gameresults}/>}
+          />
           <Route path="/Setup"
             element={<Setup 
               setSetupInfo={setSetupInfo}/>} 
@@ -102,7 +141,8 @@ const App = () => {
             element={<GameInPlay 
               setupInfo={setupInfo}
               setGameResults={setGameResults}
-              gameresults={gameresults}/>} 
+              gameresults={gameresults}
+              addGameresult={addGameresult}/>} 
           />
         </Routes>
       </HashRouter>

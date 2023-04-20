@@ -60,7 +60,7 @@ const getLeaderboardData = (results) => {
     });
 };
 
-export const Homepage = ({gameresults}) => {
+export const Homepage = ({gameresults, setEmailKeyInput, emailKeyInput, saveEmailKey}) => {
 
     console.log(gameresults);
 
@@ -72,6 +72,7 @@ export const Homepage = ({gameresults}) => {
         <>
        
         <h2 className='m-3'>Home page</h2>
+
         <Button
             variant="success"
             onClick={() => nav("/setup")}
