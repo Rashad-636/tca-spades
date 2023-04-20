@@ -9,7 +9,8 @@ export const GameInPlay = ({setupInfo, setGameResults, gameresults, addGameresul
     const nav = useNavigate();
 
     const gameOver = (won) => {
-        
+
+        // saves games to cloud via email entered
         addGameresult({
             ...setupInfo
             , winningTeam: won
@@ -81,13 +82,13 @@ export const GameInPlay = ({setupInfo, setGameResults, gameresults, addGameresul
 
         <Button
             variant="outline-primary"
-            onClick={() => gameOver("team 1")}    
+            onClick={() => gameOver("Team 1")}    
         >
             Team 1 Won
         </Button>{' '}
         <Button
             variant="outline-danger"
-            onClick={() => gameOver("team 2")}
+            onClick={() => gameOver("Team 2")}
         >
             Team 2 Won
         </Button>
