@@ -2,7 +2,7 @@ import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useState} from "react";
 
-export const GameInPlay = ({setupInfo, setGameResults, gameresults, addGameresult}) => {
+export const GameInPlay = ({setupInfo, addGameresult}) => {
 
     console.log(setupInfo);
     

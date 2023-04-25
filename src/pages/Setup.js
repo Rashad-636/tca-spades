@@ -34,9 +34,8 @@ export const Setup = ({setSetupInfo}) => {
     return (
     <>
     <h2>Pick Your Team</h2>
-      <label>Team One</label>
+      <label className="mb-3">Team One</label>
       <br />
-      Player One: 
       <input 
         placeholder="Player One"
         value={playerOne
@@ -45,7 +44,6 @@ export const Setup = ({setSetupInfo}) => {
       />
       <br/>
       <br/>
-      Player Two: 
       <input 
         placeholder="Player Two"
         value={playerTwo
@@ -55,7 +53,7 @@ export const Setup = ({setSetupInfo}) => {
       <br/>
       <br/>
 
-    <label>Team Two</label>
+    <label className="mb-3">Team Two</label>
       <br />
       Player Three: 
       <input 
