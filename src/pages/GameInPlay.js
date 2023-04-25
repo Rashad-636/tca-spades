@@ -50,6 +50,7 @@ export const GameInPlay = ({setupInfo, addGameresult}) => {
                 <input
                     value= {val}
                     onChange={(e) => setVal(e.target.value)}
+                    className="mt-3"
                 /> 
             <br/>
             <br/>

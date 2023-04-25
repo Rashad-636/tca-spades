@@ -15,6 +15,7 @@ export const Setup = ({setSetupInfo}) => {
 
 
     const play = () => {
+
       setSetupInfo({
         start: new Date().toISOString()
         , playerOne: playerOne
@@ -22,7 +23,9 @@ export const Setup = ({setSetupInfo}) => {
         , playerThree: playerThree
         , playerFour: playerFour
       });
+
       nav("/GameInPlay");
+
     };
 
     console.log(playerOne);
@@ -34,7 +37,7 @@ export const Setup = ({setSetupInfo}) => {
     return (
     <>
     <h2>Pick Your Team</h2>
-      <label className="mb-3">Team One</label>
+      <label className="mb-3" style={{color: 'blue'}}>Team One</label>
       <br />
       <input 
         placeholder="Player One"
@@ -53,7 +56,7 @@ export const Setup = ({setSetupInfo}) => {
       <br/>
       <br/>
 
-    <label className="mb-3">Team Two</label>
+    <label className="mb-3"  style={{color: 'red'}}>Team Two</label>
       <br />
       Player Three: 
       <input 
@@ -74,7 +77,7 @@ export const Setup = ({setSetupInfo}) => {
       <br/>
       <br/>
       <Button
-      variant="outline-primary"
+        variant="outline-primary"
         onClick={play}
       >
         Play!

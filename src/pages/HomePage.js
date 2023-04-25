@@ -67,7 +67,7 @@ export const Homepage = ({gameresults, setEmailKeyInput, emailKeyInput, saveEmai
 
     const nav = useNavigate();
 
-    const totalGames = gameresults.length
+    const totalGames = gameresults.length;
 
     return ( 
         <>
