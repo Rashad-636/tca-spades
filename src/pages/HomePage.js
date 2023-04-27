@@ -110,7 +110,7 @@ export const Homepage = ({gameresults, setEmailKeyInput, emailKeyInput, saveEmai
             </Modal.Footer>
         </Modal>
        
-        <h2 className='m-3'>Home page</h2>
+        <h1 className='m-3'>Home page</h1>
         <Card className='mb-3'>
             <Card.Header>
                 # of Games Played

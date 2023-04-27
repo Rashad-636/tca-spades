@@ -45,7 +45,7 @@ export const GameInPlay = ({setupInfo, addGameresult}) => {
     
     return (
     <>
-        <h2>Game In Play Page</h2>
+        <h1>Game in Progress</h1>
             Team 1:<span> </span>  
                 <input
                     value= {val}

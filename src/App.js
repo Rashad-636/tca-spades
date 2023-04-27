@@ -108,7 +108,7 @@ const App = () => {
   return (
     <div className="App">
 
-      <h1>Spades Companion App</h1>
+      <h2>Spades Companion App</h2>
       <hr />
       <HashRouter>
         <Routes>

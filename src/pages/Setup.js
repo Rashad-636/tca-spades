@@ -47,7 +47,7 @@ export const Setup = ({setSetupInfo}) => {
 
     return (
     <>
-    <h2>Pick Your Team</h2>
+    <h1>Pick Your Team</h1>
       <label className="mb-3" style={{color: 'blue'}}>Team One</label>
       <br />
       
