@@ -59,7 +59,9 @@ const getLeaderboardData = (results) => {
             , losses: losses 
             , avg: avg.toFixed(3)
         };
-    });
+    }).sort(
+        (a,b) => a.avg > b.avg ? -1: 1
+    );
 };
 
 export const Homepage = ({gameresults, setEmailKeyInput, emailKeyInput, saveEmailKey}) => {
@@ -78,7 +80,7 @@ export const Homepage = ({gameresults, setEmailKeyInput, emailKeyInput, saveEmai
     return ( 
         <>
         <Button variant="warning" onClick={handleShow}>
-            Load Leaderboard
+            Player Account
         </Button>
 
         <Modal

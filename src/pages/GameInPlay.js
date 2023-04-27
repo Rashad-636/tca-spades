@@ -73,12 +73,22 @@ export const GameInPlay = ({setupInfo, addGameresult}) => {
             teamOneScores.reduce(
                 (acc, x) => acc + x
                 , 0)
-            }</p>
+            }
+            < br/>
+            {
+                teamOneScores.map(x => x.toString()).join(" | ")
+            }
+        </p>
         <p>Team 2 Total: {
             teamTwoScores.reduce(
                 (acc, x) => acc + x
                 , 0)
-            }</p>
+            }
+            <br />
+            {
+                teamTwoScores.map(x => x.toString()).join(" | ")
+            }
+        </p>
         <br/>
 
         <Button
