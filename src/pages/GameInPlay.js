@@ -46,7 +46,7 @@ export const GameInPlay = ({setupInfo, addGameresult}) => {
     return (
     <>
         <h1>Game in Progress</h1>
-            Team 1:<span> </span>  
+            Team Blue:<span> </span>  
                 <input
                     value= {val}
                     onChange={(e) => setVal(e.target.value)}
@@ -54,7 +54,7 @@ export const GameInPlay = ({setupInfo, addGameresult}) => {
                 /> 
             <br/>
             <br/>
-            Team 2:<span> </span>  
+            Team Red:<span> </span>  
                 <input
                     value= {valTwo}
                     onChange={(e) => setValTwo(e.target.value)}
@@ -69,40 +69,51 @@ export const GameInPlay = ({setupInfo, addGameresult}) => {
             </Button>
             <br/>
             <br/>
-        <p>Team 1 Total: {
+        <p><u><b>Blue Total</b></u>
+        <br/>
+            {
             teamOneScores.reduce(
                 (acc, x) => acc + x
                 , 0)
             }
-            < br/>
-            {
-                teamOneScores.map(x => x.toString()).join(" | ")
-            }
         </p>
-        <p>Team 2 Total: {
+        <p><u><b>Red Total</b></u>
+        <br/> 
+            {
             teamTwoScores.reduce(
                 (acc, x) => acc + x
                 , 0)
             }
             <br />
-            {
-                teamTwoScores.map(x => x.toString()).join(" | ")
-            }
         </p>
-        <br/>
 
         <Button
             variant="outline-primary"
             onClick={() => gameOver("Team 1")}    
         >
-            Team 1 Won
+            Team Blue Won
         </Button>{' '}
         <Button
             variant="outline-danger"
             onClick={() => gameOver("Team 2")}
         >
-            Team 2 Won
+            Team Red Won
         </Button>
+        <br />
+        <br />
+        <h3>Scores per hand</h3>
+        Blue
+        <br />
+            {
+                teamOneScores.map(x => x.toString()).join(" | ")
+            }
+        <br />
+        <br />
+        Red
+        <br />
+            {
+                teamTwoScores.map(x => x.toString()).join(" | ")
+            }
     </>
     )
 };
