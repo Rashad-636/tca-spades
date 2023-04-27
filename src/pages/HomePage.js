@@ -2,7 +2,8 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { useNavigate } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
-import { Form } from 'react-bootstrap';
+import Modal from 'react-bootstrap/Modal';
+import { useState } from 'react';
 
 const getUniquePlayers = (results) => {
     return [
@@ -69,70 +70,91 @@ export const Homepage = ({gameresults, setEmailKeyInput, emailKeyInput, saveEmai
 
     const totalGames = gameresults.length;
 
+    // Modal States
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     return ( 
         <>
+        <Button variant="warning" onClick={handleShow}>
+            Load Leaderboard
+        </Button>
+
+        <Modal
+            show={show}
+            onHide={handleClose}
+            backdrop="static"
+            keyboard={false}
+        >
+            <Modal.Header closeButton>
+                <Modal.Title>Enter Email</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <input
+                    type="text" 
+                    placeholder="Enter Email"
+                    value={emailKeyInput} 
+                    onChange={(e) => setEmailKeyInput(e.target.value)}
+                />
+            </Modal.Body>
+            <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                    Close
+                </Button>
+                <Button variant="primary" onClick={saveEmailKey}>
+                    Save Email
+                </Button>
+            </Modal.Footer>
+        </Modal>
        
         <h2 className='m-3'>Home page</h2>
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-			<Form.Control 
-				type="text" 
-				placeholder="Enter Email"
-				value={emailKeyInput} 
-				onChange={(e) => setEmailKeyInput(e.target.value)}
-			/>
-        <br />
-			<Button
-				onClick={saveEmailKey}
-			>
-				Save
-			</Button>
-		</Form.Group>
+        <Card className='mb-3'>
+            <Card.Header>
+                # of Games Played
+            </Card.Header>
+            <Card.Body>
+                {totalGames}
+            </Card.Body>
+        </Card>
         <Button
             variant="success"
             onClick={() => nav("/setup")}
             className='mb-3'
             > 
             Start Game
-            </Button>
-            <Card>
-                <Card.Header>
-                    # of Games Played
-                </Card.Header>
-                <Card.Body>
-                    {totalGames}
-                </Card.Body>
-            </Card>
-            <Card
-                className="mt-3 overflow-hidden"
-            >
-                <Card.Header>
-                    Leaderboard
-                </Card.Header>
-                <Card.Body>
-                        <Table striped bordered>
-                            <thead>
-                                <tr>
-                                    <th>Player</th>
-                                    <th>W</th>
-                                    <th>L</th>
-                                    <th>AVG</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            {
-                                getLeaderboardData(gameresults).map(x => 
-                                <tr>
-                                 <td>{x.name}</td>
-                                 <td>{x.wins}</td> 
-                                 <td>{x.losses}</td>
-                                 <td>{x.avg}</td>  
-                                </tr>)
-                            }
-                            </tbody>
-                        </Table>                        
-            
-                </Card.Body>
-            </Card>
+        </Button>
+        <Card
+            className=" overflow-hidden"
+        >
+            <Card.Header>
+                Leaderboard
+            </Card.Header>
+            <Card.Body>
+                    <Table striped bordered>
+                        <thead>
+                            <tr>
+                                <th>Player</th>
+                                <th>W</th>
+                                <th>L</th>
+                                <th>AVG</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {
+                            getLeaderboardData(gameresults).map(x => 
+                            <tr>
+                                <td>{x.name}</td>
+                                <td>{x.wins}</td> 
+                                <td>{x.losses}</td>
+                                <td>{x.avg}</td>  
+                            </tr>)
+                        }
+                        </tbody>
+                    </Table>                        
+        
+            </Card.Body>
+        </Card>
         </>
     );
 };
