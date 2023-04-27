@@ -16,10 +16,10 @@ export const Setup = ({setSetupInfo}) => {
 
     const play = () => {
 
-      if (playerOne.length !== 3 ||
-          playerTwo.length !== 3 ||
-          playerThree.length !== 3 ||
-          playerFour.length !== 3)
+      if (playerOne.length <= 3 ||
+          playerTwo.length <=  3 ||
+          playerThree.length <=  3 ||
+          playerFour.length <=  3)
           
         return
       
