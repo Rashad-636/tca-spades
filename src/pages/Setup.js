@@ -16,6 +16,7 @@ export const Setup = ({setSetupInfo}) => {
 
     const play = () => {
 
+      // Validation for input boxes
       if (playerOne.length <= 2 ||
           playerTwo.length <=  2 ||
           playerThree.length <=  2 ||
@@ -69,7 +70,7 @@ export const Setup = ({setSetupInfo}) => {
       <br/>
       <br/>
 
-    <label className="mb-3"  style={{color: 'red'}}>Team Red</label>
+    <label className="mb-3" style={{color: 'red'}}>Team Red</label>
       <br />
 
       <input 

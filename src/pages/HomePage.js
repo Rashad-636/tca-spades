@@ -79,7 +79,7 @@ export const Homepage = ({gameresults, setEmailKeyInput, emailKeyInput, saveEmai
 
     return ( 
         <>
-        <Button variant="warning" onClick={handleShow}>
+        <Button className='mb-3' variant="warning" onClick={handleShow}>
             Player Account
         </Button>
 
@@ -110,7 +110,6 @@ export const Homepage = ({gameresults, setEmailKeyInput, emailKeyInput, saveEmai
             </Modal.Footer>
         </Modal>
        
-        <h1 className='m-3'>Home page</h1>
         <Card className='mb-3'>
             <Card.Header>
                 # of Games Played
