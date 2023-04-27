@@ -77,6 +77,13 @@ export const Homepage = ({gameresults, setEmailKeyInput, emailKeyInput, saveEmai
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const getHmmData = (gameresults) => {
+
+        return {
+          lastPlayedMsAgo: Math.min(...gameresults.map(x => Date.now() - new Date(x.end).getTime()))
+        };
+    }
+
     return ( 
         <>
         <Button variant="warning" onClick={handleShow}>
@@ -154,7 +161,6 @@ export const Homepage = ({gameresults, setEmailKeyInput, emailKeyInput, saveEmai
                         }
                         </tbody>
                     </Table>                        
-        
             </Card.Body>
         </Card>
         </>
