@@ -16,12 +16,16 @@ export const Setup = ({setSetupInfo}) => {
 
     const play = () => {
 
-      if (playerOne.length <= 3 ||
-          playerTwo.length <=  3 ||
-          playerThree.length <=  3 ||
-          playerFour.length <=  3)
+      if (playerOne.length <= 2 ||
+          playerTwo.length <=  2 ||
+          playerThree.length <=  2 ||
+          playerFour.length <=  2) {
+
+              alert("Player names require at least 3 characters");
+
+              return
+          };
           
-        return
       
       setSetupInfo({
         start: new Date().toISOString()
