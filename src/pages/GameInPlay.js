@@ -47,7 +47,7 @@ export const GameInPlay = ({setupInfo, addGameresult}) => {
     
     return (
     <>
-        <h1>Track Your Scoring</h1>
+        <h1>Game in Progress...</h1>
             <label>Blue Team:</label> <span> </span>
                 <input
                     value= {val}
@@ -72,7 +72,7 @@ export const GameInPlay = ({setupInfo, addGameresult}) => {
 
         <br />
         <br />
-        <h2>Scoring breakdown and totals</h2>
+        <h2>Scoring Breakdown</h2>
         <br />
         <Row>
             <Col> 

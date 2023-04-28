@@ -92,7 +92,7 @@ export const Setup = ({setSetupInfo}) => {
       <br/>
       <br/>
       <Button
-        variant="outline-primary"
+        variant="outline-success"
         onClick={play}
       >
         Play!
