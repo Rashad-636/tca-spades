@@ -48,46 +48,47 @@ export const Setup = ({setSetupInfo}) => {
 
     return (
     <>
-    <h1>Pick Your Team</h1>
+      <h1>Pick Your Team</h1>
+      <br/>
       <label className="mb-3" style={{color: 'blue'}}> Blue Team</label>
       <br />
-      
-      <input 
-        placeholder="Player One"
-        value={playerOne
-        }
-        onChange={(e) => setPlayerOne(e.target.value)}
-      />
+        
+        <input 
+          placeholder="Player One"
+          value={playerOne
+          }
+          onChange={(e) => setPlayerOne(e.target.value)}
+        />
       <br/>
       <br/>
 
-      <input 
-        placeholder="Player Two"
-        value={playerTwo
-        }
-        onChange={(e) => setPlayerTwo(e.target.value)}
-      />
+        <input 
+          placeholder="Player Two"
+          value={playerTwo
+          }
+          onChange={(e) => setPlayerTwo(e.target.value)}
+        />
       <br/>
       <br/>
 
-    <label className="mb-3" style={{color: 'red'}}>Red Team</label>
+      <label className="mb-3" style={{color: 'red'}}>Red Team</label>
       <br />
 
-      <input 
-        placeholder="Player Three"
-        value={playerThree
-        }
-        onChange={(e) => setPlayerThree(e.target.value)}
-      />
+        <input 
+          placeholder="Player Three"
+          value={playerThree
+          }
+          onChange={(e) => setPlayerThree(e.target.value)}
+        />
       <br/>
       <br/>
 
-      <input 
-        placeholder="Player Four"
-        value={playerFour
-        }
-        onChange={(e) => setPlayerFour(e.target.value)}
-      />
+        <input 
+          placeholder="Player Four"
+          value={playerFour
+          }
+          onChange={(e) => setPlayerFour(e.target.value)}
+        />
       <br/>
       <br/>
       <Button

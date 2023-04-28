@@ -84,10 +84,10 @@ export const GameInPlay = ({setupInfo, addGameresult}) => {
                 <br/>
                 <b>Total: 
                     {
-                teamOneScores.reduce(
-                    (acc, x) => acc + x
-                    , 0)
-                    } 
+                        teamOneScores.reduce(
+                        (acc, x) => acc + x
+                        , 0)
+                } 
             <br/>
             </b>
             <br/>
@@ -107,7 +107,7 @@ export const GameInPlay = ({setupInfo, addGameresult}) => {
                 <br/>
                 <b>Total:
                     {
-                    teamTwoScores.reduce(
+                        teamTwoScores.reduce(
                         (acc, x) => acc + x
                         , 0)
                     }
