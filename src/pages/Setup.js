@@ -49,7 +49,7 @@ export const Setup = ({setSetupInfo}) => {
     return (
     <>
     <h1>Pick Your Team</h1>
-      <label className="mb-3" style={{color: 'blue'}}>Team Blue</label>
+      <label className="mb-3" style={{color: 'blue'}}> Blue Team</label>
       <br />
       
       <input 
@@ -70,7 +70,7 @@ export const Setup = ({setSetupInfo}) => {
       <br/>
       <br/>
 
-    <label className="mb-3" style={{color: 'red'}}>Team Red</label>
+    <label className="mb-3" style={{color: 'red'}}>Red Team</label>
       <br />
 
       <input 

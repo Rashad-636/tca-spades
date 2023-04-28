@@ -1,6 +1,8 @@
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useState} from "react";
+import {Row} from "react-bootstrap";
+import {Col} from "react-bootstrap";
 
 export const GameInPlay = ({setupInfo, addGameresult}) => {
 
@@ -45,16 +47,16 @@ export const GameInPlay = ({setupInfo, addGameresult}) => {
     
     return (
     <>
-        <h1>Game in Progress</h1>
-            Team Blue:<span> </span>  
+        <h1>Track Your Scoring</h1>
+            <label>Blue Team:</label> <span> </span>
                 <input
                     value= {val}
                     onChange={(e) => setVal(e.target.value)}
                     className="mt-3"
-                /> 
+                />
             <br/>
-            <br/>
-            Team Red:<span> </span>  
+            <br />
+            <label>Red Team:</label> <span> </span>  
                 <input
                     value= {valTwo}
                     onChange={(e) => setValTwo(e.target.value)}
@@ -65,55 +67,61 @@ export const GameInPlay = ({setupInfo, addGameresult}) => {
             variant="outline-success"
             onClick= {() => addTurnScore()}
             >
-             Add Turn Score 
+             Add Total Score
             </Button>
-            <br/>
-            <br/>
-        <p><u><b>Blue Total</b></u>
-        <br/>
-            {
-            teamOneScores.reduce(
-                (acc, x) => acc + x
-                , 0)
-            }
-        </p>
-        <p><u><b>Red Total</b></u>
-        <br/> 
-            {
-            teamTwoScores.reduce(
-                (acc, x) => acc + x
-                , 0)
-            }
-            <br />
-        </p>
 
-        <Button
+        <br />
+        <br />
+        <h2>Scoring breakdown and totals</h2>
+        <br />
+        <Row>
+            <Col> 
+                <h3 style={{color: 'blue'}}><u>Blue Team</u></h3>
+                    {
+                        teamOneScores.map(x => x.toString()).join(" | ")
+                    }
+                <br/>
+                <br/>
+                <b>Total: 
+                    {
+                teamOneScores.reduce(
+                    (acc, x) => acc + x
+                    , 0)
+                    } 
+            <br/>
+            </b>
+            <br/>
+                <Button
             variant="outline-primary"
             onClick={() => gameOver("Team 1")}    
         >
-            Team Blue Won
-        </Button>{' '}
-        <Button
-            variant="outline-danger"
-            onClick={() => gameOver("Team 2")}
-        >
-            Team Red Won
-        </Button>
-        <br />
-        <br />
-        <h3>Scores per hand</h3>
-        Blue
-        <br />
-            {
-                teamOneScores.map(x => x.toString()).join(" | ")
-            }
-        <br />
-        <br />
-        Red
-        <br />
-            {
-                teamTwoScores.map(x => x.toString()).join(" | ")
-            }
+            Winner!
+                </Button>
+            </Col>
+            <Col> 
+                <h3 style={{color: 'red'}}><u>Red Team</u></h3>
+                    {
+                        teamTwoScores.map(x => x.toString()).join(" | ")
+                    }
+                <br/>
+                <br/>
+                <b>Total:
+                    {
+                    teamTwoScores.reduce(
+                        (acc, x) => acc + x
+                        , 0)
+                    }
+                </b>
+                <br/>
+                <br/>
+                <Button
+                    variant="outline-danger"
+                    onClick={() => gameOver("Team 2")}
+                >
+                    Winner!
+                </Button>
+            </Col>
+        </Row>
     </>
     )
 };
