@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/tca-spades/static/css/main.596461b9.css",
+    "main.js": "/tca-spades/static/js/main.5533c5f6.js",
+    "static/js/787.26709467.chunk.js": "/tca-spades/static/js/787.26709467.chunk.js",
+    "index.html": "/tca-spades/index.html",
+    "main.596461b9.css.map": "/tca-spades/static/css/main.596461b9.css.map",
+    "main.5533c5f6.js.map": "/tca-spades/static/js/main.5533c5f6.js.map",
+    "787.26709467.chunk.js.map": "/tca-spades/static/js/787.26709467.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.596461b9.css",
+    "static/js/main.5533c5f6.js"
+  ]
+}
