@@ -18,12 +18,12 @@ export const Setup = ({setSetupInfo}) => {
     const play = () => {
 
       // Validation for input boxes
-      if (playerOne.length <= 2 ||
-          playerTwo.length <=  2 ||
-          playerThree.length <=  2 ||
-          playerFour.length <=  2) {
+      if (playerOne.length < 2 ||
+          playerTwo.length < 2 ||
+          playerThree.length < 2 ||
+          playerFour.length < 2) {
 
-              alert("Player names require at least 3 characters");
+              alert("Player names require at least 2 characters");
 
               return
           };
@@ -67,7 +67,7 @@ export const Setup = ({setSetupInfo}) => {
           
           <input 
             placeholder="Player One"
-            value={playerOne
+            value={playerOne.charAt(0).toUpperCase() + playerOne.slice(1)
             }
             onChange={(e) => setPlayerOne(e.target.value)}
           />
@@ -76,7 +76,7 @@ export const Setup = ({setSetupInfo}) => {
 
           <input 
             placeholder="Player Two"
-            value={playerTwo
+            value={playerTwo.charAt(0).toUpperCase() + playerTwo.slice(1)
             }
             onChange={(e) => setPlayerTwo(e.target.value)}
           />
@@ -88,7 +88,7 @@ export const Setup = ({setSetupInfo}) => {
 
           <input 
             placeholder="Player Three"
-            value={playerThree
+            value={playerThree.charAt(0).toUpperCase() + playerThree.slice(1)
             }
             onChange={(e) => setPlayerThree(e.target.value)}
           />
@@ -97,12 +97,13 @@ export const Setup = ({setSetupInfo}) => {
 
           <input 
             placeholder="Player Four"
-            value={playerFour
+            value={playerFour.charAt(0).toUpperCase() + playerFour.slice(1)
             }
             onChange={(e) => setPlayerFour(e.target.value)}
           />
         <br/>
         <br/>
+        
         <Button
           variant="outline-success"
           onClick={play}
