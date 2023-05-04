@@ -61,10 +61,10 @@ export const GameInPlay = ({setupInfo, addGameresult}) => {
                 <Nav.Link onClick={back}>Back</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link onClick={home}>Home</Nav.Link>
+                <Nav.Link onClick={home}>Exit</Nav.Link>
             </Nav.Item>
         </Nav>
-        <h1>Game in Progress...</h1>
+        <h2>Game in Progress...</h2>
             <label>Blue Team:</label> <span> </span>
                 <input
                     value= {val}
@@ -93,7 +93,7 @@ export const GameInPlay = ({setupInfo, addGameresult}) => {
         <br />
         <Row>
             <Col> 
-                <h3 style={{color: 'blue'}}><u>Blue Team</u></h3>
+                <h4 style={{color: 'blue'}}><u>Blue Team</u></h4>
                     {
                         teamOneScores.map(x => x.toString()).join(" | ")
                     }
@@ -116,7 +116,7 @@ export const GameInPlay = ({setupInfo, addGameresult}) => {
                 </Button>
             </Col>
             <Col> 
-                <h3 style={{color: 'red'}}><u>Red Team</u></h3>
+                <h4 style={{color: 'red'}}><u>Red Team</u></h4>
                     {
                         teamTwoScores.map(x => x.toString()).join(" | ")
                     }
