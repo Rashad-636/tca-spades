@@ -2,7 +2,7 @@
   "name": "tca-spades",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Rashad-636/tca-spades",
+  "homepage": "https://rashad-636.github.io/tca-spades",
   "dependencies": {
     "@aws-sdk/util-dynamodb": "^3.316.0",
     "@testing-library/jest-dom": "^5.16.5",
