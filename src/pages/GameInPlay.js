@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useState} from "react";
 import {Row} from "react-bootstrap";
 import {Col} from "react-bootstrap";
+import { Nav } from "react-bootstrap";
 
 export const GameInPlay = ({setupInfo, addGameresult}) => {
 
@@ -44,9 +45,25 @@ export const GameInPlay = ({setupInfo, addGameresult}) => {
         setVal(0);
         setValTwo(0);
     };
+
+    const back = () => {
+        nav(-1)
+    };
+
+    const home = () => {
+        nav(-2)
+    };
     
     return (
     <>
+        <Nav className="justify-content-between" activeKey="/home">
+            <Nav.Item>
+                <Nav.Link onClick={back}>Back</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+                <Nav.Link onClick={home}>Home</Nav.Link>
+            </Nav.Item>
+        </Nav>
         <h1>Game in Progress...</h1>
             <label>Blue Team:</label> <span> </span>
                 <input
