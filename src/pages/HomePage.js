@@ -96,7 +96,7 @@ export const Homepage = ({gameresults, setEmailKeyInput, emailKeyInput, saveEmai
                 <input
                     type="text" 
                     placeholder="Enter Email"
-                    value={emailKeyInput} 
+                    value={emailKeyInput.charAt(0).toUpperCase() + emailKeyInput.slice(1)} // forces first letter to be capitalized
                     onChange={(e) => setEmailKeyInput(e.target.value)}
                 />
             </Modal.Body>
